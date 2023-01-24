@@ -21,7 +21,11 @@ p {
   text-align: center;
   font-size: 20px;
 }
-
+ul {
+  color: #f2f2f2
+    font-family: Arial, Helvetica, sans-serif;
+  text-align: left;
+  font-size: 15px;
 /* NAVBAR STYLING STARTS */
 
 .navbar {
