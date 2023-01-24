@@ -26,6 +26,13 @@ font:18px "Arial",san-serif;
   color: #C0C0C0;
   line-height: 2 ;
 }
+       form {
+  overflow: hidden;
+}
+input {
+  float: right;
+  clear: both;
+}
 
 /* NAVBAR STYLING STARTS */
 
