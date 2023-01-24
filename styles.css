@@ -22,7 +22,8 @@ p {
   font-size: 20px;
 }
 ul {
-font:15px "Arial",san-serif;
+font:18px "Arial",san-serif;
+  color: #C0C0C0;
 }
 
 /* NAVBAR STYLING STARTS */
