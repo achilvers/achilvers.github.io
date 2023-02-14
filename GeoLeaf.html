@@ -1,31 +1,9 @@
-<!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8" />
+  <head>
+    <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
     <title>ArcGIS Maps SDK for JavaScript Tutorials: Display a map</title>
-<link rel="stylesheet" href="https://js.arcgis.com/4.25/esri/themes/light/main.css">
-<script src="https://js.arcgis.com/4.25/"></script>
-      esriConfig.apiKey = "AAPKe6a275697b4d40109f80331e60a13523aGTHA-_Wg2eNDX192mdJdErOGL_Skt3CAFknlh6qtwcxztLhn12eVBmAL3FQ0b1u";
-      const map = new Map({
-        basemap: "arcgis-topographic" // Basemap layer
-      });
-  <script>
-      require(["esri/config", "esri/Map", "esri/views/MapView"], function(esriConfig, Map, MapView) {
 
-      });
-    </script>
-<script>
-      const view = new MapView({
-        map: map,
-        center: [-118.805, 34.027],
-        zoom: 13, // scale: 72223.819286
-        container: "viewDiv",
-        constraints: {
-          snapToZoom: false
-        }
-      });
-  </script>
     <style>
       html,
       body,
@@ -36,21 +14,29 @@
         width: 100%;
       }
     </style>
- esriConfig.apiKey = "YOUR_API_KEY";
+
+    <link rel="stylesheet" href="https://js.arcgis.com/4.25/esri/themes/light/main.css">
+    <script src="https://js.arcgis.com/4.25/"></script>
+
+    <script>
+      require(["esri/config", "esri/Map", "esri/views/MapView"], function(esriConfig, Map, MapView) {
+
+        esriConfig.apiKey = "AAPKebebdcf252d54f94a0dfb3c4bb062cc7emIhN5xGKb3f-D10B8YLyN-8srs06N_mAysJySFeb2EPRQVUga6_6HaRg41omCCu";
 
         const map = new Map({
           basemap: "arcgis-topographic" // Basemap layer service
         });
-         const view = new MapView({
+
+        const view = new MapView({
           map: map,
           center: [-118.805, 34.027], // Longitude, latitude
           zoom: 13, // Zoom level
           container: "viewDiv" // Div element
         });
+    </script>
+
   </head>
   <body>
     <div id="viewDiv"></div>
   </body>
-
-  
 </html>
