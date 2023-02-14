@@ -31,6 +31,14 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
           [51.503, -.06],
           [51.51, -.047]
           ]).addTo(map);
+     marker.bindPopup("<b>Heelo World!</b></br> I am a popup.").openPopup();
+     circle.bindPopup("I am a circle.");
+     polygon.bindPopup("I am a polygon.");
+     var popup = L.popup()
+     .setLatLng([51.513, -0.09])
+     .setContent("I am a standalone popup.")
+     .openOn(map);
+     
     </script>
   </body>
   
