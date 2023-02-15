@@ -20,12 +20,23 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
    var marker = L.marker([51.5, -0.09]).addTo(map);
+     L.marker([51.5, -0.09], {icon: greenIcon}).addTo(map);
      var circle = L.circle([51.508, -0.11], {
           color: 'blue',
           fillColor: '#f03',
           fillOpacity: 0.5,
           radius: 500
      }).addTo(map);
+     var greenIcon = L.icon({
+    iconUrl: 'leaf-green.png',
+    shadowUrl: 'leaf-shadow.png',
+
+    iconSize:     [38, 95],
+    shadowSize:   [50, 64], 
+    iconAnchor:   [22, 94], 
+    shadowAnchor: [4, 62],
+    popupAnchor:  [-3, -76]
+});
      var polygon = L.polygon([
           [51.509, -0.08],
           [51.503, -.06],
