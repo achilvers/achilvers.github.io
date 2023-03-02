@@ -25,6 +25,14 @@
         color: #323232;
       }
     </style>
+require(["esri/layers/GeoJSONLayer"], function(GeoJSONLayer){
+  // points to the states layer in a service storing U.S. census data
+  const geojsonlayer = new GeoJSONLayer({
+    url: "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson",
+    copyright: "USGS Earthquakes"
+  });
+  map.add(geojsonlayer);  // adds the layer to the map
+});
   </head>
   <body>
     <div id="map"></div>
