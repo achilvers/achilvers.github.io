@@ -37,7 +37,12 @@
       L.esri.Vector.vectorBasemapLayer("ArcGIS:ModernAntique", {
         apikey: apiKey
       }).addTo(map);
-                                                                                                                  </script>
+var trailheads = L.esri
+        .featureLayer({
+          url: "https://services.arcgis.com/0GSyrhLukJp7RnRg/arcgis/rest/services/points1_featurestojson/FeatureServer"
+        });
+trailheads.addTo(map);
+                                                                                                                       </script>
   </body>
 </html>
 
