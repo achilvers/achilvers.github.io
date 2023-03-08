@@ -42,6 +42,9 @@ L.esri
           url: "/Points_FeaturesToJSON.geojson"
         })
         .addTo(map);
-                                                                                                                  </script>
+const layer = new FeatureLayer({
+  url: "https://services.arcgis.com/0GSyrhLukJp7RnRg/arcgis/rest/services/points1_featurestojson/FeatureServer/0"
+});
+ layer.addTo(map);                                                                                                                  </script>
   </body>
 </html>
