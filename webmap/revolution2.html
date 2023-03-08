@@ -43,6 +43,11 @@
           url: "/Points_FeaturesToJSON.js"
         })
         .addTo(map);
+    const layer = new FeatureLayer({
+  url: "https://services.arcgis.com/0GSyrhLukJp7RnRg/arcgis/rest/services/points1_featurestojson/FeatureServer/0"
+});
+
+map.add(layer);
                                                                                                                   </script>
   </body>
 </html>
