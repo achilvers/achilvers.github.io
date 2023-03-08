@@ -42,7 +42,8 @@ var trailheads = L.esri
           url: "https://services.arcgis.com/0GSyrhLukJp7RnRg/arcgis/rest/services/points1_featurestojson/FeatureServer/0"
         });
 trailheads.addTo(map);
-                                                                                                                           trailheads.bindPopup(function (layer) {
+
+trailheads.bindPopup(function (layer) {
         return L.Util.template(
           "<p>Battle <strong>{name}</strong></p>",
           layer.feature.properties
