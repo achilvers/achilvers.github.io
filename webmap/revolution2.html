@@ -41,7 +41,7 @@
       const map = L.map("map").setView([40, -65], 5.25);
 
       L.esri.Vector.vectorBasemapLayer("ArcGIS:ModernAntique", {
-        apikey: apiKey
+        apikey: apiKey, attribution: "test"
       }).addTo(map);
 var trailheads = L.esri
         .featureLayer({
