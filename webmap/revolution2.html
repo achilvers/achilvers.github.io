@@ -47,9 +47,6 @@ var trailheads = L.esri
           url: "https://services.arcgis.com/0GSyrhLukJp7RnRg/arcgis/rest/services/points1_featurestojson/FeatureServer/0"
         });
 trailheads.addTo(map);
-<div id="infobox">
-                 <p> Battles of Revolutionary War </p>
-                 </div>
       trailheads.bindPopup(function (layer) {
  return L.Util.template("<b>{Name}</b></br>", layer.feature.properties);
       });
