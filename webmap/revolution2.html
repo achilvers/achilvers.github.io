@@ -23,11 +23,16 @@
         width: 100%;
         font-family: Arial, Helvetica, sans-serif;
         font-size: 14px;
-        color: #323232;
+        color: #323232;                                                                                                
       }
+#infobox { position: absolute;
+       left:15px; width: 300px; top: 15px;
+       z-index: 20; padding: 5px; border-radius: 5px;
+       background-color: #ffffff; opacity: 0.7;
+       }
     </style>
   </head>
-  <body>
+  <body>                                                                                                      
     <div id="map"></div>
     <script>
       const apiKey = "AAPKe6a275697b4d40109f80331e60a13523aGTHA-_Wg2eNDX192mdJdErOGL_Skt3CAFknlh6qtwcxztLhn12eVBmAL3FQ0b1u";
@@ -42,7 +47,9 @@ var trailheads = L.esri
           url: "https://services.arcgis.com/0GSyrhLukJp7RnRg/arcgis/rest/services/points1_featurestojson/FeatureServer/0"
         });
 trailheads.addTo(map);
-
+<div id="infobox">
+                 <p> Battles of Revolutionary War </p>
+                 </div>
       trailheads.bindPopup(function (layer) {
  return L.Util.template("<b>{Name}</b></br>", layer.feature.properties);
       });
