@@ -49,10 +49,15 @@
         iconAnchor: [13.5, 17.5],
         popupAnchor: [0, -11]
       });
-var trailheads = L.esri
+     L.esri
         .featureLayer({
-          url: "https://services.arcgis.com/FvF9MZKp3JWPrSkg/arcgis/rest/services/RevMap/FeatureServer/1"
-        });
+          url: "https://services.arcgis.com/FvF9MZKp3JWPrSkg/arcgis/rest/services/RevMap/FeatureServer/1",
+          pointToLayer: function (geojson, latlng) {
+            return L.marker(latlng, {
+              icon: icon
+            });
+          }
+        })
 trailheads.addTo(map);
       trailheads.bindPopup(function (layer) {
  return L.Util.template("<b>{Name}</b></br>", layer.feature.properties);
