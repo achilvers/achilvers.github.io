@@ -43,6 +43,12 @@
       L.esri.Vector.vectorBasemapLayer("ArcGIS:ModernAntique", {
         apikey: apiKey, attribution: "test"
       }).addTo(map);
+					         const icon = L.icon({
+        iconUrl: "https://esri.github.io/esri-leaflet/img/earthquake-icon.png",
+        iconSize: [27, 31],
+        iconAnchor: [13.5, 17.5],
+        popupAnchor: [0, -11]
+      });
 var trailheads = L.esri
         .featureLayer({
           url: "https://services.arcgis.com/FvF9MZKp3JWPrSkg/arcgis/rest/services/RevMap/FeatureServer/1"
