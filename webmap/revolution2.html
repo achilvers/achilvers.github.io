@@ -67,6 +67,20 @@ UKbattles.addTo(map);
       UKbattles.bindPopup(function (layer) {
  return L.Util.template("<b>{Name}</b></br>", layer.feature.properties);
       });
+	    
+	        var USbattles = L.esri
+        .featureLayer({
+          url: "https://services.arcgis.com/FvF9MZKp3JWPrSkg/arcgis/rest/services/USWins/FeatureServer/8",
+          pointToLayer: function (geojson, latlng) {
+            return L.marker(latlng, {
+              icon: icon2
+            });
+          }
+        })
+USbattles.addTo(map);
+      USbattles.bindPopup(function (layer) {
+ return L.Util.template("<b>{Name}</b></br>", layer.feature.properties);
+      });
                                                                                                                        </script>
 		<div id="about" style="font-size: 0.9em; position: absolute; right: 25px; top: 25px; width: 350px; padding: 5px; background-color: #dfdfdf; box-shadow: 5px 5px #0000004f; z-index:50; max-width: 90%; max-height: 90%; overflow-y: auto;">
 		<div style="cursor: pointer; text-align:right; color: red; font-weight: bold;" onclick="closeabout()";>X</div>
