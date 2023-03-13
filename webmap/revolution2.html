@@ -42,7 +42,7 @@
       L.esri.Vector.vectorBasemapLayer("ArcGIS:ModernAntique", {
         apikey: apiKey, attribution: "test"
       }).addTo(map);
-					         const icon = L.icon({
+					         const icon1 = L.icon({
         iconUrl: "https://achilvers.github.io/webmap/UK.png",
         iconSize: [32, 27],
         iconAnchor: [13.5, 17.5],
@@ -53,7 +53,7 @@
           url: "https://services.arcgis.com/FvF9MZKp3JWPrSkg/arcgis/rest/services/RevMap/FeatureServer/1",
           pointToLayer: function (geojson, latlng) {
             return L.marker(latlng, {
-              icon: icon
+              icon: icon1
             });
           }
         })
