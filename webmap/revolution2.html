@@ -88,7 +88,19 @@
         iconAnchor: [13.5, 17.5],
         popupAnchor: [0, -11]
       });
-
+	        var UKbattles = L.esri
+        .featureLayer({
+          url: "https://services.arcgis.com/FvF9MZKp3JWPrSkg/arcgis/rest/services/USWins/FeatureServer/7",
+          pointToLayer: function (geojson, latlng) {
+            return L.marker(latlng, {
+              icon: icon1
+            })
+	    }
+          });
+UKbattles.addTo(map);
+      UKbattles.bindPopup(function (layer) {
+ return L.Util.template("<b>{Name}</b></br>", layer.feature.properties);
+      });
 	        var USbattles = L.esri
         .featureLayer({
           url: "https://services.arcgis.com/FvF9MZKp3JWPrSkg/arcgis/rest/services/USWins/FeatureServer/8",
