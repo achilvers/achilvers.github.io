@@ -93,9 +93,10 @@
           pointToLayer: function (geojson, latlng) {
             return L.marker(latlng, {
               icon: icon1
+	    }
             });
-          }
-        })
+	  }
+	})
 UKbattles.addTo(map);
       UKbattles.bindPopup(function (layer) {
  return L.Util.template("<b>{Name}</b></br>", layer.feature.properties);
