@@ -107,13 +107,7 @@ UKbattles.addTo(map);
           pointToLayer: function (geojson, latlng) {
             return L.marker(latlng, {
               icon: icon2
-            },  onEachFeature: function (feature, layer){
-		    layer.on({
-                click: function (e){ 
-			var layer = e.target;
-            segToTableID = layer.feature.properties.Segment_ID;
-		    }
-});
+            }
 	    });
           }
         })
