@@ -7,6 +7,7 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" crossorigin="" />
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" crossorigin=""></script>
+	  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- Load Esri Leaflet from CDN -->
     <script src="https://unpkg.com/esri-leaflet@3.0.10/dist/esri-leaflet.js"></script>
@@ -193,6 +194,14 @@ USbattles.addTo(map);
 		<li><strong>Description:</strong> (Click on a icon for details)</li>
         </ul>
 	    </div>
+	        featureLayer.on('click', function(e) {
+        var properties = e.layer.feature.properties;
+        $('#info-box').html('<h3>Feature Info</h3><ul>' + 
+          '<li><strong>Name:</strong> ' + properties.name + '</li>' +
+          '<li><strong>Description:</strong> ' + properties.description + '</li>' +
+          '</ul>');
+      });
+    </script>
   </body>
 </html>
 
