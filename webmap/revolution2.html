@@ -195,7 +195,7 @@ USbattles.addTo(map);
         </ul>
 	    </div>
 	  <script>
-	        featureLayer.on('click', function(e) {
+	        USbattles.on('click', function(e) {
         var properties = e.layer.feature.properties;
         $('#info-box').html('<h3>Feature Info</h3><ul>' + 
           '<li><strong>Name:</strong> ' + properties.name + '</li>' +
