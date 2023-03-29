@@ -166,6 +166,8 @@ var USbattles = L.esri.featureLayer({
 		layer.on("click", function(e) {
 			var marker = e.target;
 			console.log(marker);
+			props = marker.feature.properties; 
+			document.getElementById("Desc").innerHTML = props.PopupInfo;
 		});
 	  }
 });
@@ -196,7 +198,7 @@ USbattles.addTo(map);
 		<br>
 				<br>
 		<br>
-		<li><strong>Description:</strong> (Click on a icon for details)</li>
+		<li><strong>Description:</strong> <span id = "Desc"> (Click on a icon for details) </span></li>
         </ul>
 	    </div>
 	  <script>
