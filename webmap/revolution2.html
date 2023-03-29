@@ -157,17 +157,18 @@ UKbattles.addTo(map);
       UKbattles.bindPopup(function (layer) {
  return L.Util.template("<b>{Name}</b></br>", layer.feature.properties);
       });
-	        var USbattles = L.esri
-        .featureLayer({
+var USbattles = L.esri.featureLayer({
           url: "https://services.arcgis.com/FvF9MZKp3JWPrSkg/arcgis/rest/services/USWins/FeatureServer/8",
           pointToLayer: function (geojson, latlng) {
-            return L.marker(latlng, {
-              icon: icon2
-            })}, onEachFeature: function(feature, layer){ 
-		    layer.on("click", function(e) {
-			    var marker = e.target; console.log(marker)
-			    });
-          });
+              return L.marker(latlng, { icon: icon2 });
+	  },
+	 onEachFeature: function(feature, layer){ 
+		layer.on("click", function(e) {
+			var marker = e.target;
+			console.log(marker);
+		});
+	  }
+});
 USbattles.addTo(map);
       USbattles.bindPopup(function (layer) {
  return L.Util.template("<b>{Name}</b></br>", layer.feature.properties);
