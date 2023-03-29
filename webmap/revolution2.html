@@ -163,7 +163,11 @@ UKbattles.addTo(map);
           pointToLayer: function (geojson, latlng) {
             return L.marker(latlng, {
               icon: icon2
-            })
+            } , onEachFeature: function(feature, layer){ 
+		    layer.on("click", function(e) {
+			    var marker = e.target; console.log(marker)
+			    });
+	    })
 	    }
           });
 USbattles.addTo(map);
