@@ -148,10 +148,11 @@ function closePopup() {
           url: "https://services.arcgis.com/FvF9MZKp3JWPrSkg/arcgis/rest/services/UKWinsWeb/FeatureServer/7",
           pointToLayer: function (geojson, latlng) {
             return L.marker(latlng, {
-              icon: icon1
+              icon: icon1    
             })
 	    }
           });
+	    
 UKbattles.addTo(map);
       UKbattles.bindPopup(function (layer) {
  return L.Util.template("<b>{Name}</b></br>", layer.feature.properties);
@@ -169,6 +170,12 @@ USbattles.addTo(map);
       USbattles.bindPopup(function (layer) {
  return L.Util.template("<b>{Name}</b></br>", layer.feature.properties);
       });
+	    map.on('click', function(e) {
+
+  // Get the clicked marker's information
+  var marker = e.target; console.log(marker)
+	    });
+	    
                                                                                                                        </script>
     <div id="infobox">
         <h1>BATTLE</h1>
