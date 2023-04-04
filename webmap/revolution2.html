@@ -215,6 +215,13 @@ USbattles.addTo(map);
           '<li><strong>Description:</strong> ' + properties.description + '</li>' +
           '</ul>');
       });
+				        UKbattles.on('click', function(e) {
+        var properties = e.layer.feature.properties;
+        $('#info-box').html('<h3>Feature Info</h3><ul>' + 
+          '<li><strong>Name:</strong> ' + properties.name + '</li>' +
+          '<li><strong>Description:</strong> ' + properties.description + '</li>' +
+          '</ul>');
+      });
     </script>
   </body>
 </html>
