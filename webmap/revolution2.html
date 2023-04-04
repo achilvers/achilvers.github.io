@@ -147,9 +147,7 @@ function closePopup() {
           url: "https://services.arcgis.com/FvF9MZKp3JWPrSkg/arcgis/rest/services/UKWinsWeb/FeatureServer/7",
           pointToLayer: function (geojson, latlng) {
             return L.marker(latlng, {icon: icon1});
-	    }, 
-			          pointToLayer: function (geojson, latlng) {
-              return L.marker(latlng, { icon: icon2 });
+	    },
 	 onEachFeature: function(feature, layer){ 
 		layer.on("click", function(e) {
 			var marker = e.target;
