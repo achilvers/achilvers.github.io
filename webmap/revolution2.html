@@ -202,7 +202,7 @@ USbattles.addTo(map);
 		<br>
 				<br>
 		<br>
-		<li><strong>Description:</strong> <span id = "Desc"> (Click on a icon for details) </span></li>
+		<li><strong>Description:</strong><br> <span id = "Desc"> (Click on a icon for details) </span></li>
         </ul>
 	    </div>
 	  <script>
@@ -210,7 +210,7 @@ USbattles.addTo(map);
         var properties = e.layer.feature.properties;
         $('#info-box').html('<h3>Feature Info</h3><ul>' + 
           '<li><strong>Name:</strong> ' + properties.name + '</li>' +
-          '<li><strong>Description:</strong> '<br> + properties.description + '</li>' +
+          '<li><strong>Description:</strong> ' + properties.description + '</li>' +
           '</ul>');
       });
     </script>
