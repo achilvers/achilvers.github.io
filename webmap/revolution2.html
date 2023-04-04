@@ -155,6 +155,7 @@ function closePopup() {
 			props = marker.feature.properties; 
 			document.getElementById("Desc").innerHTML = props.PopupInfo;
 			document.getElementById("Deaths").innerHTML= props.Deaths;
+			document.getElementById("USG").innerHTML = props.USGeneral;
 		});
 	  }
 }); 
@@ -174,6 +175,7 @@ var USbattles = L.esri.featureLayer({
 			props = marker.feature.properties; 
 			document.getElementById("Desc").innerHTML = props.PopupInfo;
 			document.getElementById("Death").innerHTML = props.Deaths;
+			document.getElementById("USG").innerHTML = props.USGeneral;
 		});
 	  }
 });
