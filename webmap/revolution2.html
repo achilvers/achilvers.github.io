@@ -157,6 +157,7 @@ function closePopup() {
 			document.getElementById("Deaths").innerHTML= props.Deaths;
 			document.getElementById("USG").innerHTML = props.USGeneral;
 			document.getElementById("Winner").innerHTML = props.Wins;
+			document.getElementById("Name").innerHTML = props.Name;
 		});
 	  }
 }); 
@@ -178,6 +179,7 @@ var USbattles = L.esri.featureLayer({
 			document.getElementById("Death").innerHTML = props.Deaths;
 			document.getElementById("USG").innerHTML = props.USGeneral;
 			document.getElementById("Winner").innerHTML = props.Wins;
+			document.getElementById("Name").innerHTML = props.Name;
 		});
 	  }
 });
@@ -187,7 +189,7 @@ USbattles.addTo(map);
       });
                                                                                                                        </script>
     <div id="infobox">
-        <h1>BATTLE</h1>
+	    <h1><span id="Names">BATTLE</span></h1>
         <i>Click on a icons to view its properties</i>
 	    <br>
 		    <br>
@@ -204,7 +206,7 @@ USbattles.addTo(map);
 		<br>
 				<br>
 		<br>
-		<li><b>Deaths:</b> <span id = "Death"></span></li>
+		<li><b>Deaths:</b> <span id ="Death"></span></li>
 		<br>
 				<br>
 		<br>
