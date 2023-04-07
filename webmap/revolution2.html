@@ -220,6 +220,7 @@ USbattles.addTo(map);
 var layerControl = L.control.layers({
   'Overlay Layer': USbattles // add the overlay layer as the overlay layer
 });
+layerControl.addTo(map);
 				        UKbattles.on('click', function(e) {
         var properties = e.layer.feature.properties;
         $('#info-box').html('<h3>Feature Info</h3><ul>' + 
