@@ -191,7 +191,7 @@ USbattles.addTo(map);
  return L.Util.template("<b>{Name}</b></br>", layer.feature.properties);
       });
 var layerControl = L.control.layers({
-  'ArcGIS:ModernAntique': L.esri.Vector.vectorBasemapLayer('ArcGIS:ModernAntiqu'),
+  'ArcGIS:ModernAntique': L.esri.basemapLayer('ArcGIS:ModernAntiqu'),
 }, {
   'UKbattles': UKbattles,
   'USbattles': USbattles,
