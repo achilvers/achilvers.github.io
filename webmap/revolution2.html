@@ -217,18 +217,9 @@ USbattles.addTo(map);
         </ul>
 	    </div>
 	  <script>
-		  var layerControl = L.control.layers({
-  'Basemap': basemapLayer // add the basemap layer as the base layer
-}, {
-  'Overlay Layer': USBattles // add the overlay layer as the overlay layer
-}).addTo(map);
-	        USbattles.on('click', function(e) {
-        var properties = e.layer.feature.properties;
-        $('#info-box').html('<h3>Feature Info</h3><ul>' + 
-          '<li><strong>Name:</strong> ' + properties.name + '</li>' +
-          '<li><strong>Description:</strong> ' + properties.description + '</li>' +
-          '</ul>');
-      });
+var layerControl = L.control.layers({
+  'Overlay Layer': USbattles // add the overlay layer as the overlay layer
+});
 				        UKbattles.on('click', function(e) {
         var properties = e.layer.feature.properties;
         $('#info-box').html('<h3>Feature Info</h3><ul>' + 
