@@ -191,6 +191,8 @@ USbattles.addTo(map);
  return L.Util.template("<b>{Name}</b></br>", layer.feature.properties);
       });
 var layerControl = L.control.layers({
+  'Base Map': L.esri.basemapLayer('Topographic'),
+},
   'British Victories': UKbattles,
   'U.S. Victories': USbattles,
 }, {
