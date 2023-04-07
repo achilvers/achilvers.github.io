@@ -1,11 +1,12 @@
 <html>
   <head>
     <meta charset="utf-8" />
+	   <link rel="icon" href="2653562.png">
     <title>Revolutionary War Battles</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" crossorigin="" />
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" crossorigin=""></script>
-     <script src="/Points_FeaturesToJSON.js""></script>
+	  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- Load Esri Leaflet from CDN -->
     <script src="https://unpkg.com/esri-leaflet@3.0.10/dist/esri-leaflet.js"></script>
@@ -16,31 +17,187 @@
       html,
       body,
       #map {
-        padding: 0;
-        margin: 0;
-        height: 100%;
-        width: 100%;
+             position: absolute;
+            z-index: 0;
+            left: 0;
+            bottom: 0;
+	      right: 35px;
+            top: 1%;
         font-family: Arial, Helvetica, sans-serif;
         font-size: 14px;
         color: #323232;
       }
+ #topbar {
+            color: #512921;
+            font-family:Garamond, serif;
+            font-size: 11.25px;
+            position: fixed;
+            line-height: 10px;
+            background-color: #f0ece4;
+            z-index: 75;
+            top: 0;
+            left: 0;
+	 right: 0;
+            width: 100%;
+            height: 5%;
+            min-height: 25px;
+            box-shadow: 0 1px 5px black;
+            padding-left: 0.5%;
+	    }
+#infobox{
+            position: fixed;
+            padding-top: 5px;
+            z-index: 50;
+            color: #512921;
+            right: 0px;
+            bottom: 0px;
+            width: 25%;
+            height: 95%;
+            background-color: #f0ece4;
+            min-width: 50px;
+            overflow-x: hidden;
+            overflow-y: auto;
+            box-shadow: -1px 0 5px black;
+            font-family: Garamond, serif;
+            padding-left: 0.5%;
+	padding-right: 30px;
+        }
+	    .popup {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.popup-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  text-align: center;
+	font-family:Garamond, serif;
+}
+
+.close-button {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
     </style>
   </head>
   <body>
-    <div id="map"></div>
-    <script>
+	  <div id="popup" class="popup">
+  <div class="popup-content">
+	  <p><strong>Thank you For visiting the American Revolution Battles Page!</strong><br></p>
+    <span class="close-button" onclick="closePopup()">&times;</span>
+	  <img src="join.png" alt="Icon of Revolutionary Man" width="350" height="250">
+    
+	   <p> Please click on the flag points to view Battle history as well as images of the most influential battle of our nation!</p>
+  </div>
+</div>
+<script>
       const apiKey = "AAPKe6a275697b4d40109f80331e60a13523aGTHA-_Wg2eNDX192mdJdErOGL_Skt3CAFknlh6qtwcxztLhn12eVBmAL3FQ0b1u";
 
       const map = L.map("map").setView([40, -65], 5.25);
 
       L.esri.Vector.vectorBasemapLayer("ArcGIS:ModernAntique", {
-        apikey: apiKey
+        apikey: apiKey, attribution: "test"
       }).addTo(map);
-        .addTo(map);
-const layer = new FeatureLayer({
-  url: "https://services.arcgis.com/0GSyrhLukJp7RnRg/arcgis/rest/services/points1_featurestojson/FeatureServer/0"
+					         const icon1 = L.icon({
+        iconUrl: "https://achilvers.github.io/webmap/UK.png",
+        iconSize: [32, 27],
+        iconAnchor: [13.5, 17.5],
+        popupAnchor: [0, -11]
+							 
+      });
+	    const icon2 = L.icon({
+        iconUrl: "https://achilvers.github.io/webmap/PatWin.png",
+        iconSize: [32, 27],
+        iconAnchor: [13.5, 17.5],
+        popupAnchor: [0, -11]
+      });
+	        var UKbattles = L.esri.featureLayer({
+          url: "https://services.arcgis.com/FvF9MZKp3JWPrSkg/arcgis/rest/services/UKWinsWeb555_FeaturesToJSON/FeatureServer/0",
+          pointToLayer: function (geojson, latlng) {
+            return L.marker(latlng, {icon: icon1});
+	    },
+	 onEachFeature: function(feature, layer){ 
+		layer.on("click", function(e) {
+			var marker = e.target;
+			console.log(marker);
+			props = marker.feature.properties; 
+			document.getElementById("Desc").innerHTML = props.PopupInfo;
+			document.getElementById("Death").innerHTML= props.Deaths;
+			document.getElementById("USG").innerHTML = props.USGeneral;
+			document.getElementById("UKG").innerHTML = props.UKGeneral;
+			document.getElementById("Wins").innerHTML = props.Wins;
+			document.getElementById("Name").innerHTML = props.Name;
+		});
+	  }
+}); 
+UKbattles.addTo(map);
+      UKbattles.bindPopup(function (layer) {
+ return L.Util.template("<b>{Name}</b></br>", layer.feature.properties);
+      });
+var USbattles = L.esri.featureLayer({
+          url: "https://services.arcgis.com/FvF9MZKp3JWPrSkg/arcgis/rest/services/United/FeatureServer/0",
+          pointToLayer: function (geojson, latlng) {
+              return L.marker(latlng, { icon: icon2 });
+	  },
+	 onEachFeature: function(feature, layer){ 
+		layer.on("click", function(e) {
+			var marker = e.target;
+			console.log(marker);
+			props = marker.feature.properties; 
+			document.getElementById("Desc").innerHTML = props.PopupInfo;
+			document.getElementById("Death").innerHTML = props.Deaths;
+			document.getElementById("USG").innerHTML = props.USGeneral;
+			document.getElementById("UKG").innerHTML = props.UKGeneral;
+			document.getElementById("Wins").innerHTML = props.Wins;
+			document.getElementById("Name").innerHTML = props.Name;
+		});
+	  }
 });
- layer.addTo(map);  
-</script>
+USbattles.addTo(map);
+      USbattles.bindPopup(function (layer) {
+ return L.Util.template("<b>{Name}</b></br>", layer.feature.properties);
+      });
+var overlayMaps = {
+  "UK Battles": UKbattles,
+  "US Battles": USbattles
+};
+
+L.control.layers(overlayMaps).addTo(map);
+                                                                                                                       </script>
+	    </div>
+	  <script>
+var layerControl = L.control.layers({
+  'Overlay Layer': USbattles // add the overlay layer as the overlay layer
+});
+layerControl.addTo(map);
+				        UKbattles.on('click', function(e) {
+        var properties = e.layer.feature.properties;
+        $('#info-box').html('<h3>Feature Info</h3><ul>' + 
+          '<li><strong>Name:</strong> ' + properties.name + '</li>' +
+          '<li><strong>Description:</strong> ' + properties.description + '</li>' +
+          '</ul>');
+      });
+    </script>
   </body>
 </html>
