@@ -190,6 +190,12 @@ USbattles.addTo(map);
       USbattles.bindPopup(function (layer) {
  return L.Util.template("<b>{Name}</b></br>", layer.feature.properties);
       });
+var overlayMaps = {
+  "UK Battles": ukBattles,
+  "US Battles": usBattles
+};
+
+L.control.layers(baseMaps, overlayMaps).addTo(map);
                                                                                                                        </script>
     <div id="infobox">
 <h1> <span id= "Name">Battle Name </span></h1>
