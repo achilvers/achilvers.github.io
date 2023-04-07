@@ -195,7 +195,7 @@ var overlayMaps = {
   "US Battles": USbattles
 };
 
-L.control.layers(overlayMaps, {position: 'bottomleft'}).addTo(map);
+L.control.layers(overlayMaps, {position:'bottomleft'}).addTo(map);
                                                                                                                        </script>
     <div id="infobox">
 <h1> <span id= "Name">Battle Name </span></h1>
@@ -224,7 +224,7 @@ L.control.layers(overlayMaps, {position: 'bottomleft'}).addTo(map);
 	    </div>
 	  <script>
 var layerControl = L.control.layers({
-  'Overlay Layer': USbattles // add the overlay layer as the overlay layer
+  'Overlay Layer': USbattles, {position:'bottomleft'} // add the overlay layer as the overlay layer
 });
 layerControl.addTo(map);
 				        UKbattles.on('click', function(e) {
