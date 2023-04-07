@@ -191,8 +191,8 @@ USbattles.addTo(map);
  return L.Util.template("<b>{Name}</b></br>", layer.feature.properties);
       });
 var overlayMaps = {
-  "UK Battles": ukBattles,
-  "US Battles": usBattles
+  "UK Battles": UKbattles,
+  "US Battles": USbattles
 };
 
 L.control.layers(baseMaps, overlayMaps).addTo(map);
