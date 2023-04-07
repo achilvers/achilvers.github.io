@@ -190,12 +190,14 @@ USbattles.addTo(map);
       USbattles.bindPopup(function (layer) {
  return L.Util.template("<b>{Name}</b></br>", layer.feature.properties);
       });
-var overlayMaps = {
-  "UK Battles": UKbattles,
-  "US Battles": USbattles
-};
-
-L.control.layers(overlayMaps, {position:'bottomleft'}).addTo(map);
+var layerControl = L.control.layers({
+  'ArcGIS:ModernAntique': L.esri.Vector.vectorBasemapLayer('ArcGIS:ModernAntiqu'),
+}, {
+  'UKbattles': UKbattles,
+  'USbattles': USbattles,
+}, {
+  position: 'bottomleft',
+}).addTo(map);
                                                                                                                        </script>
     <div id="infobox">
 <h1> <span id= "Name">Battle Name </span></h1>
