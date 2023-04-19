@@ -160,9 +160,7 @@ function closePopup() {
 			document.getElementById("UKG").innerHTML = props.UKGeneral;
 			document.getElementById("Wins").innerHTML = props.Wins;
 			document.getElementById("Name").innerHTML = props.Name;
-		}); marker.on('click', function(e) {
-  // Zoom to the clicked marker
-  map.setView(e.latlng, zoomLevel);
+		});
 	  }
 }); 
 UKbattles.addTo(map);
