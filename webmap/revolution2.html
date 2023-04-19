@@ -184,6 +184,7 @@ var USbattles = L.esri.featureLayer({
 			document.getElementById("UKG").innerHTML = props.UKGeneral;
 			document.getElementById("Wins").innerHTML = props.Wins;
 			document.getElementById("Name").innerHTML = props.Name;
+			map.setView(e.latlng,8);
 		});
 	  }
 });
